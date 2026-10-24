@@ -1,13 +1,15 @@
-import gradio as gr
 gr.close_all()
 
-def greet(name):
-    return "Hello, " + name + "!"
+def getDetails(name, age, preference, hobbies):
+  return f" "
 
 demo = gr.Interface(
-    fn=greet,
-    inputs=[gr.Textbox(label="Name:")],
-    outputs=[gr.Textbox()],
+    fn=getDetails,
+    inputs = [gr.Textbox(label="Name: "),
+        gr.Slider(label="Age: "),
+        gr.Radio(label="Subject Preference: ", choices=[]),
+        gr.Checkboxgroup(label='Hobbies:', choices=[])
+    ],
+    outputs=[gr.Textbox()]
 )
-
 demo.launch()
